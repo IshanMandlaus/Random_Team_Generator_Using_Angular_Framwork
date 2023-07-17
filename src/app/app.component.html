@@ -1,0 +1,64 @@
+
+
+<div class="login-page ">
+  <div class="form">
+    <h1 class="cardItems">Random Team Generator</h1>
+    <ol class="list">
+      <li *ngFor="let x of names">{{x | titlecase}}</li>
+    </ol>
+    <div class="cardItems">
+      
+      <input 
+      #name 
+      (input)="onInput(name.value)"
+      
+      (keyup.enter)="addName()"
+      class="input" type="text" 
+      placeholder="Participant Name             Example: Alex Jones"
+      [value]="newName"
+      >
+      <button (click)="addName()">Add</button>
+    </div>
+
+    <div class="cardItems">
+      
+      <input 
+      #numTeam
+      (input)="teamInput(numTeam.valueAsNumber)"
+      (keyup.enter)="addTeam()"
+      class="input" 
+      type="number" 
+      placeholder="No. Teams                          Example: 15"
+      [value]="noTeams"
+      >
+      <button (click)="addTeam()">Generate</button>
+    </div>
+    <p style="color: rgb(0, 159, 48);" [innerHTML]="messege"></p>
+  </div>
+  <div class="form" style="max-width: 150px;">
+    <h1>Info:</h1>
+    <p>
+      <li>Add the participants you want to distribute into teams.</li>
+      <li>Once all participants are added, select the number of team you would like to generate.</li>
+      <li>Then click the generate button to create the random teams which you can view displayed below after creation.</li>
+      <li>Use "reset team builder" to start from scratch.</li>
+    </p>
+  </div>
+</div>
+<div *ngIf="teams.length" class="form" style=" max-width: 100%;">
+  <h1 style="font-weight: 700;">TEAMS</h1>
+  <button (click)="reset()" class="reset" style=" width: 300px;"> Reset Team Builder</button>
+  <div style="display: flex;">
+    <div *ngFor="let team of teams; let i = index" class="form">
+      <h2>Team {{i+1}}</h2>
+    <ul style="list-style: none; justify-content: left;">
+      <li *ngFor="let member of team">{{member | titlecase}}</li>
+    </ul>
+
+    </div>
+  </div>
+  
+</div>
+
+
+
