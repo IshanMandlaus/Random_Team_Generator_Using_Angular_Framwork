@@ -1,4 +1,7 @@
-# Random Team Generator
+
+# Random Team Generator - View the project using the link here
+
+Link to project preview -> https://htmlpreview.github.io/?https://github.com/IshanMandlaus/Random_Team_Generator_Using_Angular_Framwork/blob/main/docs/index.html
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
 
